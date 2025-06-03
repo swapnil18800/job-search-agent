@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # API keys
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-SERPAPI_API_KEY = os.getenv("SERPAPI_API_KEY")
+OPENAI_API_KEY = "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"
+SERPAPI_API_KEY="83e4745e32031a5a4a423904c5b3b21c1a97f513aca4ac3eec7cf3f29777e25b"
 
 # Model settings
 LLM_MODEL = "gpt-3.5-turbo" 

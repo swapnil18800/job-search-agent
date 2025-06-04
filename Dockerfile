@@ -19,6 +19,8 @@ RUN pip install --no-cache-dir spacy
 RUN pip install --no-cache-dir faiss-cpu
 RUN pip install --no-cache-dir crewai
 
+RUN python -m spacy download en_core_web_sm
+
 COPY . .
 
 EXPOSE 8501

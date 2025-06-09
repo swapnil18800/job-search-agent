@@ -56,6 +56,8 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ github.sha }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
         run: |
           # Stop and remove existing container if exists
           docker stop streamlit-container 2>/dev/null || true
@@ -65,6 +67,8 @@ jobs:
           docker run -d \
             --name streamlit-container \
             -p 8501:8501 \
+            -e OPENAI_API_KEY="${OPENAI_API_KEY}" \
+            -e SERPAPI_API_KEY="${SERPAPI_API_KEY}" \
             --restart always \
             $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
